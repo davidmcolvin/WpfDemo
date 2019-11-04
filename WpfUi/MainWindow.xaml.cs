@@ -20,14 +20,30 @@ namespace WpfUi
   /// </summary>
   public partial class MainWindow : Window
   {
+    public List<Person> people = new List<Person>();
+
     public MainWindow()
     {
       InitializeComponent();
+
+      SetUpDummyData();
+
+      myComboBox.ItemsSource = people;
+
+      //myMedia.Play();
+
     }
 
     private void SubmitButton_Click(object sender, RoutedEventArgs e)
     {
       MessageBox.Show($"Hello {firstNameText.Text}");
+    }
+
+    private void SetUpDummyData()
+    {
+      people.Add(new Person { FirstName = "Tim", LastName = "Corey" });
+      people.Add(new Person { FirstName = "Joe", LastName = "Smith" });
+      people.Add(new Person { FirstName = "Sue", LastName = "Storm" });
     }
   }
 }

@@ -28,6 +28,28 @@
     <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="WPF Super Demo" Grid.ColumnSpan="3" Margin="0,0,0,10"/>
     <TextBlock Grid.Column="1" Grid.Row="2"  Text="First Name" FontFamily="Segoe UI" FontWeight="SemiBold"/>
     <TextBox x:Name="firstNameText" Grid.Column="2" Grid.Row="2" Width="150"/>
-    <Button x:Name="submitButton" Content="Run Me" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Click="SubmitButton_Click"/>
+    <ComboBox x:Name="myComboBox" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="10" >
+      <ComboBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <Image Source="/Images/Me.JPG" Height="20" Width="20" />
+            <TextBlock Text="{Binding FirstName}"/>
+            <TextBlock Text=" "/>
+            <TextBlock Text="{Binding LastName}"/>
+          </StackPanel>
+        </DataTemplate>
+      </ComboBox.ItemTemplate>
+    </ComboBox>
+    <Button x:Name="submitButton" Content="Run Me" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="10" Click="SubmitButton_Click"/>
+    <!--<Image Grid.Row="1" Grid.Column="4" Grid.RowSpan="6" Source="/Images/Me.JPG"/>-->
+    <!--<MediaElement x:Name="myMedia" Grid.Row="1" Grid.Column="4" Grid.RowSpan="6"  LoadedBehavior="Manual" Source="C:\Users\Dave\Pictures\Phone Camera Back up 05112019\20190418_121946.mp4"/>-->
+    <ScrollViewer Grid.Row="1" Grid.Column="4" Grid.RowSpan="6">
+      <StackPanel Orientation="Vertical" >
+        <Image MaxHeight="200" MaxWidth="200" Source="/Images/Me.JPG"/>
+        <Image MaxHeight="200" MaxWidth="200" Source="/Images/Me.JPG"/>
+        <Image MaxHeight="200" MaxWidth="200" Source="/Images/Me.JPG"/>
+        <Image MaxHeight="200" MaxWidth="200" Source="/Images/Me.JPG"/>
+      </StackPanel>
+    </ScrollViewer>
   </Grid>
 </Window>
